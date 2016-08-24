@@ -1,0 +1,19 @@
+name: maven
+version: 1.0.0
+description: Runs maven goals
+keywords:
+  - maven
+  - mvn
+properties:
+  goals:
+    type: string
+    required: true
+  settings:
+    type: string
+    required: false
+  skip_on_branch:
+    type: string
+    required: false
+  only_on_branch:
+    type: string
+    required: false
