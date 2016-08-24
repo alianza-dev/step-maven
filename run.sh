@@ -18,10 +18,9 @@ fi
 # verify goals exist
 if [ -z "$WERCKER_MAVEN_GOALS" ]; then
   fail "Must provide goals to run"
-else
-  env
-  debug "$WERCKER_MAVEN_GOALS"
 fi
+env
+debug "$WERCKER_MAVEN_GOALS"
 
 # skip if we're on specified skipped branch
 if [ ! -z "$WERCKER_MAVEN_SKIP_ON_BRANCH" ]; then
