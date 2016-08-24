@@ -3,8 +3,6 @@
 # Some of this is modified to fit other needs from: https://bitbucket.org/xenoterracide/wercker-step-maven
 # Original Author of the above repo: Caleb Cushing
 
-set -e
-
 # if no settings are specified, default to the home default
 WERCKER_MAVEN_SETTINGS=${WERCKER_MAVEN_SETTINGS:-${HOME}/.m2/settings.xml}
 
@@ -45,15 +43,9 @@ if [ ! -z "$WERCKER_MAVEN_ONLY_ON_BRANCH" ]; then
   fi
 fi
 
-set -x
-
 mvn --update-snapshots \
     --batch-mode \
     -Dmaven.repo.local=${WERCKER_CACHE_DIR} \
     -s ${WERCKER_MAVEN_SETTINGS} \
     ${WERCKER_MAVEN_GOALS}
-
-exitCode=$?
-
-exit ${exitCode};
 
