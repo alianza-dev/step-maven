@@ -18,7 +18,7 @@ if [ -z "$WERCKER_MAVEN_GOALS" ]; then
   fail "Must provide goals to run"
 fi
 
-function run {
+function run() {
     # skip if we're on specified skipped branch
     if [ ! -z "$WERCKER_MAVEN_SKIP_ON_BRANCH" ]; then
       for skip_if_branch in $WERCKER_MAVEN_SKIP_ON_BRANCH
@@ -54,4 +54,4 @@ function run {
     return 0
 }
 
-run()
+run
