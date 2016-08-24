@@ -45,6 +45,8 @@ if [ ! -z "$WERCKER_MAVEN_ONLY_ON_BRANCH" ]; then
   fi
 fi
 
+set -x
+
 mvn --update-snapshots \
     --batch-mode \
     -Dmaven.repo.local="${WERCKER_CACHE_DIR}" \
