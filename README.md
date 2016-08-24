@@ -7,6 +7,7 @@ A simple maven executor written in `bash`
 - `goals` String with all of the options you want to use
 - `skip_on_branch` Skips running this step if the branch specified is the one being run
 - `only_on_branch` Skips running this step if the branch specified is not the one being run
+- `settings` Path to the settings.xml to use, defaults to $HOME/.m2/settings.xml
 
 
 # Example
