@@ -21,10 +21,10 @@ if [ -z "$WERCKER_MAVEN_GOALS" ]; then
 fi
 
 # skip if we're on specified skipped branch
-if [ ! -z $WERCKER_MAVEN_SKIP_ON_BRANCH ]; then
+if [ ! -z "$WERCKER_MAVEN_SKIP_ON_BRANCH" ]; then
   for skip_if_branch in $WERCKER_MAVEN_SKIP_ON_BRANCH
     do
-    if [ $WERCKER_GIT_BRANCH == $skip_if_branch ]; then
+    if [ "$WERCKER_GIT_BRANCH" == "$skip_if_branch" ]; then
       info "Skipping step due to being on branch ${WERCKER_GIT_BRANCH}"
       exit 0
     fi
@@ -32,11 +32,11 @@ if [ ! -z $WERCKER_MAVEN_SKIP_ON_BRANCH ]; then
 fi
 
 # skip if we're expecting to be on a branch we're not
-if [ ! -z $WERCKER_MAVEN_ONLY_ON_BRANCH ]; then
+if [ ! -z "$WERCKER_MAVEN_ONLY_ON_BRANCH" ]; then
   found=0
   for only_on_branch in $WERCKER_MAVEN_SKIP_ON_BRANCH
     do
-    if [ $WERCKER_GIT_BRANCH == $only_on_branch ]; then
+    if [ "$WERCKER_GIT_BRANCH" == "$only_on_branch" ]; then
       found=1
     fi
   done
@@ -47,11 +47,11 @@ fi
 
 mvn --update-snapshots \
     --batch-mode \
-    -Dmaven.repo.local=${WERCKER_CACHE_DIR} \
-    -s ${WERCKER_MAVEN_SETTINGS} \
-    ${WERCKER_MAVEN_GOALS}
+    -Dmaven.repo.local="${WERCKER_CACHE_DIR}" \
+    -s "${WERCKER_MAVEN_SETTINGS}"\
+    "${WERCKER_MAVEN_GOALS}"
 
 exitCode=$?
 
-exit exitCode;
+exit ${exitCode};
 
