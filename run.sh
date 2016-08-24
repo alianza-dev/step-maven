@@ -19,8 +19,6 @@ fi
 if [ -z "$WERCKER_MAVEN_GOALS" ]; then
   fail "Must provide goals to run"
 fi
-env
-debug "$WERCKER_MAVEN_GOALS"
 
 # skip if we're on specified skipped branch
 if [ ! -z "$WERCKER_MAVEN_SKIP_ON_BRANCH" ]; then
@@ -51,9 +49,9 @@ set -x
 
 mvn --update-snapshots \
     --batch-mode \
-    -Dmaven.repo.local="${WERCKER_CACHE_DIR}" \
-    -s "${WERCKER_MAVEN_SETTINGS}"\
-    "${WERCKER_MAVEN_GOALS}"
+    -Dmaven.repo.local=${WERCKER_CACHE_DIR} \
+    -s ${WERCKER_MAVEN_SETTINGS} \
+    ${WERCKER_MAVEN_GOALS}
 
 exitCode=$?
 

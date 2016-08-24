@@ -3,6 +3,7 @@ build:
     steps:
         - shellcheck:
             files: run.sh
+            exclude: SC2086
 
         - script:
             name: prepare output
