@@ -33,7 +33,8 @@ function run() {
     # skip if we're expecting to be on a branch we're not
     if [ ! -z "$WERCKER_MAVEN_ONLY_ON_BRANCH" ]; then
       found=0
-      for only_on_branch in $WERCKER_MAVEN_SKIP_ON_BRANCH
+      #for only_on_branch in $WERCKER_MAVEN_SKIP_ON_BRANCH
+      for only_on_branch in $WERCKER_MAVEN_ONLY_ON_BRANCH
         do
         if [ "$WERCKER_GIT_BRANCH" == "$only_on_branch" ]; then
           found=1
