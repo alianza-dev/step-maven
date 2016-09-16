@@ -35,3 +35,7 @@ Apache 2.0
 ## 1.0.0
 
 - Initial release
+
+## 1.0.5
+
+- update skip_on_branch and only_on_branch so they accept regex
