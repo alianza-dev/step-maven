@@ -39,3 +39,7 @@ Apache 2.0
 ## 1.0.5
 
 - update skip_on_branch and only_on_branch so they accept regex
+
+## 1.0.6
+
+- Fix hardcoded 0 in return bug
