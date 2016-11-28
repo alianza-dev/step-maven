@@ -32,9 +32,14 @@ Apache 2.0
 
 # Changelog
 
-## 1.0.4
-- Fix hardcoded 0 in return bug
-
 ## 1.0.0
 
 - Initial release
+
+## 1.0.5
+
+- update skip_on_branch and only_on_branch so they accept regex
+
+## 1.0.6
+
+- Fix hardcoded 0 in return bug
