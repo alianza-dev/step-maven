@@ -51,7 +51,7 @@ function run() {
         -s ${WERCKER_MAVEN_SETTINGS} \
         ${WERCKER_MAVEN_GOALS}
 
-    return 0
+    return $?
 }
 
 run
