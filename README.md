@@ -32,6 +32,9 @@ Apache 2.0
 
 # Changelog
 
+## 1.0.4
+- Fix hardcoded 0 in return bug
+
 ## 1.0.0
 
 - Initial release
