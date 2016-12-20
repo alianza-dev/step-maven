@@ -2,6 +2,10 @@
 
 # Some of this is modified to fit other needs from: https://bitbucket.org/xenoterracide/wercker-step-maven
 # Original Author of the above repo: Caleb Cushing
+# Current differences are:
+## skip_on_branch feature -- allows you to specify branches you don't want to run the maven step on
+## only_on_branch feature -- allows you to specify branches you only want to run the maven step on, and skip on all others
+## Slightly trimmed down the bash involved and changed how things are tested
 
 # if no settings are specified, default to the home default
 WERCKER_MAVEN_SETTINGS=${WERCKER_MAVEN_SETTINGS:-${HOME}/.m2/settings.xml}
