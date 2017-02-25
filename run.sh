@@ -50,7 +50,11 @@ function run() {
       fi
     fi
 
-    mvn --update-snapshots \
+    if [[ ! -z $WERCKER_MAVEN_AS_USER ]]; then
+      precommand="su $WERCKER_MAVEN_AS_USER -c "
+    fi
+
+    $precommand mvn --update-snapshots \
         --batch-mode \
         -Dmaven.repo.local=${WERCKER_CACHE_DIR} \
         -s ${WERCKER_MAVEN_SETTINGS} \

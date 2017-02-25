@@ -8,6 +8,7 @@ A simple maven executor written in `bash`
 - `skip_on_branch` Skips running this step if the branch specified is the one being run
 - `only_on_branch` Skips running this step if the branch specified is not the one being run
 - `settings` Path to the settings.xml to use, defaults to $HOME/.m2/settings.xml
+- `as_user` Run the maven commands as a user already set up on the box
 
 
 # Example
@@ -24,6 +25,7 @@ build:
         goals: -Dmaven.test.failure.ignore=false deploy
         settings: $HOME/.m2/settings.xml
         only_on_branch: master
+        as_user: postgres
 ```
 
 # License
@@ -43,3 +45,7 @@ Apache 2.0
 ## 1.0.6
 
 - Fix hardcoded 0 in return bug
+
+## 1.0.7
+
+- Add as_user option

@@ -17,3 +17,6 @@ properties:
   only_on_branch:
     type: string
     required: false
+  as_user:
+    type: string
+    required: false
