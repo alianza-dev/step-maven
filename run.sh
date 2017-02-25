@@ -50,15 +50,16 @@ function run() {
       fi
     fi
 
-    if [[ ! -z $WERCKER_MAVEN_AS_USER ]]; then
-      precommand="su $WERCKER_MAVEN_AS_USER -c "
-    fi
-
-    $precommand mvn --update-snapshots \
+    command="mvn --update-snapshots \
         --batch-mode \
         -Dmaven.repo.local=${WERCKER_CACHE_DIR} \
         -s ${WERCKER_MAVEN_SETTINGS} \
-        ${WERCKER_MAVEN_GOALS}
+        ${WERCKER_MAVEN_GOALS}"
+
+    if [[ ! -z $WERCKER_MAVEN_AS_USER ]]; then
+      command="su $WERCKER_MAVEN_AS_USER -c '$command'"
+    fi
+    $command
 
     return $?
 }
