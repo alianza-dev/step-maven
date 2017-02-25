@@ -46,6 +46,6 @@ Apache 2.0
 
 - Fix hardcoded 0 in return bug
 
-## 1.0.9
+## 1.0.10
 
 - Add as_user option
