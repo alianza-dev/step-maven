@@ -7,9 +7,6 @@
 ## only_on_branch feature -- allows you to specify branches you only want to run the maven step on, and skip on all others
 ## Slightly trimmed down the bash involved and changed how things are tested
 
-# if no settings are specified, default to the home default
-WERCKER_MAVEN_SETTINGS=${WERCKER_MAVEN_SETTINGS:-${HOME}/.m2/settings.xml}
-
 # check if maven is installed
 if ! type mvn &>/dev/null; then
   error "mvn is not installed"
@@ -52,7 +49,14 @@ function run() {
 
     if [[ ! -z $WERCKER_MAVEN_AS_USER ]]; then
         USER=$WERCKER_MAVEN_AS_USER
+        if [[ $USER != 'root' ]]; then
+            HOME=/home/$USER
+        fi
     fi
+
+    # if no settings are specified, default to the home default
+    WERCKER_MAVEN_SETTINGS=${WERCKER_MAVEN_SETTINGS:-${HOME}/.m2/settings.xml}
+
 
     su $USER -c "mvn --update-snapshots \
         --batch-mode \
