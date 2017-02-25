@@ -3,7 +3,7 @@ build:
     steps:
         - shellcheck:
             files: run.sh
-            exclude: SC2086, SC2089
+            exclude: SC2086,SC2089,SC2090
 
         - script:
             name: prepare output
