@@ -1,5 +1,5 @@
 name: maven
-version: 1.0.6
+version: 1.0.7
 description: Runs maven goals
 keywords:
   - maven
