@@ -61,6 +61,7 @@ function run() {
     su $USER -c "mvn --update-snapshots \
         --batch-mode \
         -Dmaven.repo.local=${WERCKER_CACHE_DIR} \
+        -DbuildServer=true \
         -s ${WERCKER_MAVEN_SETTINGS} \
         ${WERCKER_MAVEN_GOALS}"
 
