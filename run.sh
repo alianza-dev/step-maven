@@ -30,7 +30,7 @@ function run() {
         fi
       done
     fi
-    info "TRY TO RUN WITH $WERCKER_MAVEN_SKIP_BUILD"
+    echo "TRY TO RUN WITH $WERCKER_MAVEN_SKIP_BUILD"
     # skip if skip_build was passed in with the string TRUE
     if [[ ! -z $WERCKER_MAVEN_SKIP_BUILD ]]; then
       local skipme=$(eval echo "\$SKIPBUILD");
