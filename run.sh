@@ -33,8 +33,8 @@ function run() {
 
     # skip if skip_build was passed in with the string TRUE
     if [[ ! -z $WERCKER_MAVEN_SKIP_BUILD ]]; then
-      env
-      echo "I AM RUNNING THE SKIP"
+      info echo $(env)
+      info "I AM RUNNING THE SKIP"
       if [[ "TRUE" =~ $SKIPBUILD ]]; then
         info "Skipping step due to TRUE being passed by environment Variable SKIPBUILD"
         return 0
