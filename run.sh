@@ -31,6 +31,17 @@ function run() {
       done
     fi
 
+    # skip if skip_build was passed in with the string TRUE
+    if [[ ! -z $WERCKER_MAVEN_SKIP_BUILD ]]; then
+      for skip_if_true in $WERCKER_MAVEN_SKIP_BUILD
+        do
+        if [[ "TRUE" =~ $skip_if_true ]]; then
+          info "Skipping step due to TRUE being passed into skip_build"
+          return 0
+        fi
+      done
+    fi
+
     # skip if we're expecting to be on a branch we're not
     if [[ ! -z $WERCKER_MAVEN_ONLY_ON_BRANCH ]]; then
       found=0

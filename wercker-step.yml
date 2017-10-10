@@ -20,3 +20,6 @@ properties:
   as_user:
     type: string
     required: false
+  skip_build:
+    type: string
+    required: false

@@ -9,6 +9,7 @@ A simple maven executor written in `bash`
 - `only_on_branch` Skips running this step if the branch specified is not the one being run
 - `settings` Path to the settings.xml to use, defaults to $HOME/.m2/settings.xml
 - `as_user` Run the maven commands as a user already set up on the box
+- `skip_build` Skips runnig this step if "TRUE" is passed in, this is assuming you are passing in a ENV variable that can be manipulated on the fly
 
 
 # Example
